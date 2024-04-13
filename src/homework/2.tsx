@@ -1,4 +1,13 @@
 import React, {useReducer} from "react";
+type State = {
+  isRequestInProgress: boolean,
+  requestStep: Action['payload'],
+}
+
+type Action = { type: 'START_REQUEST', payload?: 'start' } | 
+              { type: 'PENDING_REQUEST', payload?: 'pending' } | 
+              { type: 'FINISH_REQUEST', payload?: 'finished' } | 
+              { type: 'RESET_REQUEST', payload?: 'idle' }
 
 const initialState: State = {
   isRequestInProgress: false,
